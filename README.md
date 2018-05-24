@@ -1,1 +1,1 @@
-echo "# zdacha"
+echo "# MyKursova"
