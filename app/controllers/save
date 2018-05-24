@@ -1,0 +1,20 @@
+@respons.each do |resp|
+@replay << @respons[]['id']['resp']
+
+
+
+
+
+
+<tabelz>
+<th>
+<tr>
+td>
+@replay.each do |rep|
+<tr>
+td
+td
+td
+td
+td
+</tr>
