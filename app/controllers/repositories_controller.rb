@@ -32,10 +32,20 @@ class RepositoriesController < ApplicationController
     ######@org_resp = JSON.parse(response_p.body)
     @repos = {}
     @org.each do |rp|
-      @repos[rp['id']] =JSON.parse(Net::HTTP.get_response(URI.parse(rp['repos_url'])).body
+      @repos[rp['id']] = JSON.parse(Net::HTTP.get_response(URI.parse(rp['repos_url'])).body)
     end
 
-
+    ##Створюємо діаграму по даним
+    @lang = {}
+    @org.each do |org|
+      @repos[org['id']].each do |rp|
+        if @lang.has_key(rp['language'])
+          @lang[rp['language']] = @lang[rp['language']]+1
+        else
+          @lang[rp['language']] =1
+        end
+      end
+    end
   end
 
   def create

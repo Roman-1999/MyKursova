@@ -5,21 +5,67 @@
 		text-align: center;
 	}
 </style>
+<script>
+	function drawChart() {
+	    var data = Table([
+	      @lang.each {|key, value| [key,value],}
+	      ]);
+	    var options = {
+	     title: 'Найпопулярніші мови програмування по всім репозиторіям',
+	     is3D: true,
+	    };
+	    var chart = new google.visualization.PieChart(document.getElementById('air'));
+	    chart.draw(data, options);
+	}
+</script>
+<div id="air" style="width: 500px; height: 400px;"></div>
+<div>
+	<h4>Мова програмування Java створена компанією Sun Microsystems</h4>
+	<h4>Мова програмування Python створена компанією Python Software Foundation</h4>
+	<h4>Мова програмування C++ створена компанією American Telephone and Telegraph</h4>
+	<h4>Мова програмування C створена компанією Bell Telephone Laboratories</h4>
+	<h4>Мова програмування JavaScript створена компанією Netscape</h4>
+	<h4>Мова програмування C# створена компанією Microsoft Research</h4>
+	<h4>Мова програмування HTML створена компанією World Wide Web Consortium</h4>
+	<h4>Мова програмування Ruby створена компанією Matz's Ruby Interpreter</h4>
+	<h4>Мова програмування Go створена компанією Google</h4>
+	<h4>Мова програмування PHP була створена розробниками The PHP Group</h4>
+</div>
 <table 	class="table">	
 <%@org.each do|spt|%>
+
 	<tr>
-		<td><h4>ID організації</h4></td>
-		<td><h4><center>Логін організації</center></h4></td>
+		<td><h4>ID організації та її репозиторіїв</h4></td>
+		<td><h4><center>Ім'я організації та її репозиторіїв</center></h4></td>
+		<td><h4><center>Мова програмування репозиторіїв</center></h4></td>
 	</tr>
 	<tr>
 		<td>
 			<center><%=spt ['id']%></center>
-			<%=@repos[spt['id']]%>
+
 		</td>
 		<td>
 			<center><%=spt ['login']%></center>
+			<center><%spt['name']%></center>
+		</td>
+		<td>
+			<center><%spt['language']%></center>
 		</td>
 	</tr>
+
+<%@repos[spt['id']].each do |rb|%>
+						
+	<tr>
+		<td>
+			<center><%=rb['id']%></center>
+		</td>
+				<td>
+			<center><%rb['name']%></center>
+		</td>
+		<td>
+			<center><%rb['language']%></center>
+		</td>
+	</tr>
+	<%end%>
 <%end%>
 </table>
-

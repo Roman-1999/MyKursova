@@ -18,5 +18,5 @@ Devise.setup do |config|
   #                 ENV['GITHUB_API_SECRET'], 
   #                 scope: 'user:email'
 
-  config.omniauth :github, "2cbcfbc24945628fa7ff", "77b0153e883cf3cef6893b660e9615dedde26666"
+  config.omniauth :github, "e0e663a95fca0bbe1358", "560ccf7761a20872b62e204dc6e14e6a83152e37"
 end
