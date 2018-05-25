@@ -1,0 +1,77 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+footer{
+     background-color: white;
+     padding:30px 0px;
+}        
+
+
+.address span , .menu span{
+   color: black; 
+   font-weight: bold; 
+   border-bottom: 1px solid #c7c7c7; 
+   padding:10px 0px;
+   display: block;
+   text-transform: uppercase;
+   font-size: 16px;
+   letter-spacing: 3px;
+}
+ 
+.address li a , .menu li a{
+    color:black;
+    letter-spacing: 3px;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.address li, .menu li{
+    margin:20px 0px;
+    list-style: none;
+}
+
+.address li a:hover , .menu li a:hover{
+    color: #da3e44;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.address .fa{
+    color: #da3e44;
+    margin-right: 10px;
+    font-size:18px;
+}
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<footer>
+  <div class="container">
+    <div class="row">      
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="footer-header">
+          <%= image_tag("logo.png", height: '250', width: '300') %>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <ul class="menu">
+          <center><span>Кнопки</span></center>  
+          <li>
+            <center><h3><%= link_to "Головна сторінка", root_path %></h3></center>
+          </li>
+          <li>
+            <center><h3><%= link_to "Авторизуватись через GitHub", user_github_omniauth_authorize_path %></h3></center>
+            </li>                  
+          <li>
+            <% if current_user != nil %>
+            <center><h3><%= link_to "Вийти", destroy_user_session_path, method: :delete%></h3></center>
+            <center><h3><%= link_to "Органцізації", api_test_path %></h3></center>
+          </li>
+          <%end%>
+        </ul>
+      </div>                  
+    </div> 
+  </div>
+</footer>

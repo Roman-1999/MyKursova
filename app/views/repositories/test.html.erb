@@ -1,9 +1,9 @@
 <style>
-	table 
-	{
-		border: 2; 
-		text-align: center;
-	}
+table 
+{
+	border: 2; 
+	text-align: center;
+}
 </style>
 <script>
 	function drawChart() {
@@ -19,18 +19,62 @@
 	}
 </script>
 <div id="air" style="width: 500px; height: 400px;"></div>
-<div>
-	<h4>Мова програмування Java створена компанією Sun Microsystems</h4>
-	<h4>Мова програмування Python створена компанією Python Software Foundation</h4>
-	<h4>Мова програмування C++ створена компанією American Telephone and Telegraph</h4>
-	<h4>Мова програмування C створена компанією Bell Telephone Laboratories</h4>
-	<h4>Мова програмування JavaScript створена компанією Netscape</h4>
-	<h4>Мова програмування C# створена компанією Microsoft Research</h4>
-	<h4>Мова програмування HTML створена компанією World Wide Web Consortium</h4>
-	<h4>Мова програмування Ruby створена компанією Matz's Ruby Interpreter</h4>
-	<h4>Мова програмування Go створена компанією Google</h4>
-	<h4>Мова програмування PHP була створена розробниками The PHP Group</h4>
-</div>
+<table 	class="table">
+	<tr>
+		<td><h4>Мова програмування</h4></td>
+		<td><h4>Розробник цієї мови</h4></td>
+	</tr>
+
+	<tr>
+		<td>Java</td>
+		<td>Sun Microsystems</td>
+	</tr>
+
+	<tr>
+		<td>Python</td>
+		<td>Python Software Foundation</td>
+	</tr>
+
+	<tr>
+		<td>C++</td>
+		<td>American Telephone and Telegraph</td>
+	</tr>
+
+	<tr>
+		<td>C</td>
+		<td>Bell Telephone Laboratories</td>
+	</tr>
+
+	<tr>
+		<td>JavaScript</td>
+		<td>Netscape</td>
+	</tr>
+
+	<tr>
+		<td>C#</td>
+		<td>Microsoft Research</td>
+	</tr>
+
+	<tr>
+		<td>HTML</td>
+		<td>World Wide Web Consortium</td>
+	</tr>
+
+	<tr>
+		<td>Ruby</td>
+		<td>Matz's Ruby Interpreter</td>
+	</tr>
+
+	<tr>
+		<td>Go</td>
+		<td>Google</td>
+	</tr>
+
+	<tr>
+		<td>PHP</td>
+		<td>The PHP Group</td>
+	</tr>
+</table>
 <table 	class="table">	
 <%@org.each do|spt|%>
 
@@ -60,10 +104,10 @@
 			<center><%=rb['id']%></center>
 		</td>
 				<td>
-			<center><%rb['name']%></center>
+			<center><%=rb['name']%></center>
 		</td>
 		<td>
-			<center><%rb['language']%></center>
+			<center><%=rb['language']%></center>
 		</td>
 	</tr>
 	<%end%>
