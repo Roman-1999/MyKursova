@@ -1,0 +1,25 @@
+<style>
+	table 
+	{
+		border: 2; 
+		text-align: center;
+	}
+</style>
+<table 	class="table">	
+<%@org.each do|spt|%>
+	<tr>
+		<td><h4>ID організації</h4></td>
+		<td><h4><center>Логін організації</center></h4></td>
+	</tr>
+	<tr>
+		<td>
+			<center><%=spt ['id']%></center>
+			<%=@repos[spt['id']]%>
+		</td>
+		<td>
+			<center><%=spt ['login']%></center>
+		</td>
+	</tr>
+<%end%>
+</table>
+

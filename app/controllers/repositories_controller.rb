@@ -18,10 +18,24 @@ class RepositoriesController < ApplicationController
   def test
     require 'net/http'
     require 'uri'
-    url = "https://api.github.com/search/repositories?q=programing&per_page=10"
-    uri = URI.parse(url)
-    response = Net::HTTP.get_response(uri)
-    @resp = JSON.parse(response.body)
+    #url = "https://api.github.com/search/repositories?q=programing&per_page=100"
+    org_url = "https://api.github.com/organizations?since=0"
+    ######rep_org_url = "https://api.github.com/orgs/errfree/repos"
+    #uri = URI.parse(url)
+    org_uri = URI.parse(org_url)
+    ######rep_org_uri = URI.parse(rep_org_url)
+    #response = Net::HTTP.get_response(uri)
+    ######response_p = Net::HTTP.get_response(rep_org_uri)#репозиторії організації
+    #@resp = JSON.parse(response.body)
+    response_o = Net::HTTP.get_response(org_uri)
+    @org = JSON.parse(response_o.body)
+    ######@org_resp = JSON.parse(response_p.body)
+    @repos = {}
+    @org.each do |rp|
+      @repos[rp['id']] =JSON.parse(Net::HTTP.get_response(URI.parse(rp['repos_url'])).body
+    end
+
+
   end
 
   def create
