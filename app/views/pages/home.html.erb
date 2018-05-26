@@ -4,15 +4,6 @@
 {
     background-color: #343a40!important;
 }
-.tra
-{
-    align
-}
-table 
-{
-    border: 2; 
-    text-align: center;
-}
 </style>
 <div class="container container mt-4 mb-5">
 <h1 class="display-4 text-center"> Технології створення веб-сайтів </h1>
@@ -60,65 +51,221 @@ table
         </div>
     </div>
     <hr class="bg-dark mb-4 w-25">
-    <center><h1>Коротка таблиця даних з GitHub</h1></center>
-    <table  class="table">
-        <tr>
-            <td><h4>Мова програмування</h4></td>
-            <td><h4>Кількість репозиторіїв по слову "Programing"</h4></td>
-        </tr>
+    <div class="container container mt-4 mb-5">
+        <h1 class="display-4 text-center"> Діаграми та гістограми до ключових слів репозиторіїв GitHub </h1>
+        <hr class="bg-dark mb-4 w-25">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-block p-6">
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                              google.charts.load("current", {packages:["corechart"]});
+                              google.charts.setOnLoadCallback(drawChart);
+                              function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                  ['Lanquage', 'Count'],
+                                  ['Java',     63831],
+                                  ['Python',      48315],
+                                  ['C++',  38611],
+                                  ['C', 33152],
+                                  ['JavaScript',    21450],
+                                  ['C#',    17930],
+                                  ['HTML',    11698],
+                                  ['Ruby',    9133],
+                                  ['Go',    5558],
+                                  ['PHP',    5220]
+                                ]);
 
-        <tr>
-            <td>Java</td>
-            <td>63791</td>
-        </tr>
+                                var options = {
+                                  title: 'Діаграма по ключовому слову "programing"',
+                                  is3D: true,
+                                };
 
-        <tr>
-            <td>Python</td>
-            <td>48291</td>
-        </tr>
+                                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                                chart.draw(data, options);
+                              }
+                            </script>
+                            <div id="piechart_3d" style="width: 450px; height: 350px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-block p-6">       
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                            google.charts.load('current', {packages: ['corechart', 'bar']});
+                            google.charts.setOnLoadCallback(drawTitleSubtitle);
 
-        <tr>
-            <td>C++</td>
-            <td>38588</td>
-        </tr>
+                            function drawTitleSubtitle() {
+                                var data = google.visualization.arrayToDataTable
+                                ([
+                                    ['', 'Популярність', { role: 'style' }],
+                                    ['Java', 25, '#b87333'],
+                                    ['Python', 19, 'silver'],
+                                    ['C++', 15, 'gold'],
+                                    ['C', 13, 'color: #e5e4e2' ],
+                                    ['JavaScript', 8, 'silver'],
+                                    ['C#', 7, 'silver'],
+                                    ['HTML', 5, 'silver'],
+                                    ['Ruby', 4, 'silver'],
+                                    ['Go', 2, 'silver'],
+                                    ['PHP', 2, 'silver'],
+                                ]);
 
-        <tr>
-            <td>C</td>
-            <td>33139</td>
-        </tr>
+                              var options = {
+                                  title: 'Гістограма',
+                              };
 
-        <tr>
-            <td>JavaScript</td>
-            <td>21439</td>
-        </tr>
+                              var materialChart = new google.charts.Bar(document.getElementById('chart_div'));
+                              materialChart.draw(data, options);
+                            }
+                            </script>
+                            <div id="chart_div" style="width:730px; height: 350px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-block p-6">
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                              google.charts.load("current", {packages:["corechart"]});
+                              google.charts.setOnLoadCallback(drawChart);
+                              function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                  ['Lanquage', 'Count'],
+                                  ['HTML',    80958],
+                                  ['JavaScript',    59052],
+                                  ['CSS',  54708],
+                                  ['PHP',    35574],
+                                  ['Python',      15963],
+                                  ['Ruby',    13486],
+                                  ['Java',     6656],
+                                  ['C#',    5495],
+                                  ['TypeSript',    2381],
+                                  ['Shell',     2350]
+                                ]);
 
-        <tr>
-            <td>C#</td>
-            <td>17928</td>
-        </tr>
+                                var options = {
+                                  title: 'Діаграма по ключовому слову "site"',
+                                  is3D: true,
+                                };
 
-        <tr>
-            <td>HTML</td>
-            <td>11688</td>
-        </tr>
+                                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                                chart.draw(data, options);
+                              }
+                            </script>
+                            <div id="piechart" style="width: 450px; height: 350px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-block p-6">       
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                            google.charts.load('current', {packages: ['corechart', 'bar']});
+                            google.charts.setOnLoadCallback(drawTitleSubtitle);
 
-        <tr>
-            <td>Ruby</td>
-            <td>9134</td>
-        </tr>
+                            function drawTitleSubtitle() {
+                                var data = google.visualization.arrayToDataTable
+                                ([
+                                    ['', 'Популярність', { role: 'style' }],
+                                    ['HTML', 29, '#b87333'],
+                                    ['JavaScript', 21, 'silver'],
+                                    ['CSS', 20, 'gold'],
+                                    ['PHP', 13, 'color: #e5e4e2' ],
+                                    ['Python', 6, 'color: #e5e4e2' ],
+                                    ['Ruby', 5, 'color: #e5e4e2' ],
+                                    ['Java', 2, 'color: #e5e4e2' ],
+                                    ['C#', 2, 'color: #e5e4e2' ],
+                                    ['TypeSript', 1, 'color: #e5e4e2' ],
+                                    ['Shell', 1, 'color: #e5e4e2' ],
+                                ]);
 
-        <tr>
-            <td>Go</td>
-            <td>5556</td>
-        </tr>
+                              var options = {
+                                  title: 'Гістограма',
+                              };
 
-        <tr>
-            <td>PHP</td>
-            <td>5219</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+                              var materialChart = new google.charts.Bar(document.getElementById('chart2_div'));
+                              materialChart.draw(data, options);
+                            }
+                            </script>
+                            <div id="chart2_div" style="width:730px; height: 350px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-block p-6">
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                              google.charts.load("current", {packages:["corechart"]});
+                              google.charts.setOnLoadCallback(drawChart);
+                              function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                  ['Lanquage', 'Count'],
+                                  ['JavaScript',     145673],
+                                  ['Java',      106541],
+                                  ['C#',  73274],
+                                  ['C++',  50167],   
+                                  ['Python', 49838],
+                                  ['HTML',    33630],
+                                  ['C',    18492],
+                                  ['Ruby',    17563],
+                                  ['CSS',    12244],
+                                  ['Swift',    9650]
+                                ]);
+
+                                var options = {
+                                  title: 'Діаграма по ключовому слову "game"',
+                                  is3D: true,
+                                };
+
+                                var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+                                chart.draw(data, options);
+                              }
+                            </script>
+                            <div id="piechart2" style="width: 450px; height: 350px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-block p-6">       
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                            google.charts.load('current', {packages: ['corechart', 'bar']});
+                            google.charts.setOnLoadCallback(drawTitleSubtitle);
+
+                            function drawTitleSubtitle() {
+                                var data = google.visualization.arrayToDataTable
+                                ([
+                                    ['', 'Популярність', { role: 'style' }],
+                                    ['JavaScript', 28, 'red'],           
+                                    ['Java', 21, 'silver'],            
+                                    ['C#', 14, 'yellow'],
+                                    ['C++', 10, 'indigo' ],
+                                    ['Python', 10, 'blue' ],
+                                    ['HTML', 6, 'rosybrown' ],
+                                    ['C', 4, 'black' ],
+                                    ['Ruby', 3, 'lime' ],
+                                    ['CSS', 2, 'lightslategray' ],
+                                    ['Swift', 2, 'darkslategray' ],
+                                ]);
+                                var options = {
+                                    title: 'Гістограма',
+                                  };
+                                var materialChart = new google.charts.Bar(document.getElementById('chart3_div'));
+                                    materialChart.draw(data, options);
+                                }
+                            </script>
+                            <div id="chart3_div" style="width:730px; height: 350px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
 </div>

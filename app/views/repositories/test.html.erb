@@ -5,20 +5,114 @@ table
 	text-align: center;
 }
 </style>
-<script>
-	function drawChart() {
-	    var data = Table([
-	      @lang.each {|key, value| [key,value],}
-	      ]);
-	    var options = {
-	     title: 'Найпопулярніші мови програмування по всім репозиторіям',
-	     is3D: true,
-	    };
-	    var chart = new google.visualization.PieChart(document.getElementById('air'));
-	    chart.draw(data, options);
-	}
-</script>
-<div id="air" style="width: 500px; height: 400px;"></div>
+<div class="container container mt-4 mb-5">
+    <h1 class="display-4 text-center">Діаграма та гістограма до репозиторіїв, взятих із організацій через ApiGitHub</h1>
+    <hr class="bg-dark mb-4 w-25">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-block p-6">
+                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                              google.charts.load("current", {packages:["corechart"]});
+                              google.charts.setOnLoadCallback(drawChart);
+                              function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                  ['Task', 'Hours per Day'],
+                                  ['Ruby',    123],
+                                  ['JavaScript',     71],
+                                  ['Clojure',    28],
+                                  ['Objective-C', 22],
+                                  ['Python',      20],
+                                  ['Shell',    17],
+                                  ['PHP',    14],
+                                  ['C',    14],
+                                  ['Java',    12],
+                                  ['C#',    9],
+                                  ['HTML',    6],
+                                  ['GO',    6],
+                                  ['Perl',    4],
+                                  ['ActionScript',    4],
+                                  ['Coffe-Script',    3],
+                                  ['Swift',    2],
+                                  ['Lua',    2],
+                                  ['CSS',    2],
+                                  ['Viml',    2],
+                                  ['Puppet',    2],
+                                  ['Kotlin',  1],
+                                  ['TypeScript',    1],
+                                  ['Mathematica',    1],
+                                  ['NSIS',    1],
+                                  ['XSLT',    1],
+                                  ['SQLPL',    1],
+                                  ['Emacs Lisp',    1],
+                                  ['PLpgSQL',    1]
+                                ]);
+                                var options = {
+                                  title: 'Діаграма мов програмування взятих з організацій. Загальна кількість = 410',
+                                  is3D: true,
+                                };
+                                var chart = new google.visualization.PieChart(document.getElementById('piechart5_3d'));
+                                chart.draw(data, options);
+                            }
+                        </script>
+                    <div id="piechart5_3d" style="width: 450px; height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-block p-6">       
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                    google.charts.load('current', {packages: ['corechart', 'bar']});
+                    google.charts.setOnLoadCallback(drawTitleSubtitle);
+                    function drawTitleSubtitle() {
+                        var data = google.visualization.arrayToDataTable
+                        ([
+                            ['', 'Популярність', { role: 'style' }],
+                            ['Ruby', 30, '#b87333'],
+                            ['JavaScript', 17.31, 'silver'],
+                            ['Clojure', 6.82, 'gold'],
+                            ['Objective-C', 5.36, 'color: #e5e4e2' ],
+                            ['Python', 4.87, 'silver'],
+                            ['Shell', 4.14, 'silver'],
+                            ['PHP', 3.41, 'silver'],
+                            //['C', 3.41, 'silver'],
+                            ['Java', 2.92, 'silver'],
+                            ['C#', 2.19, 'silver'],
+                            ['HTML', 1.46, 'silver'],
+                            //['GO', 1.46, 'silver'],
+                            ['Perl', 0.97, 'silver'],
+                            ['ActionScript', 0.97, 'silver'],
+                            ['Coffe-Script', 0.73, 'silver'],
+                            ['Swift', 0.48, 'silver'],
+                            //['Lua', 0.48, 'silver'],
+                            //['CSS', 0.48, 'silver'],
+                            //['Viml', 0.48, 'silver'],
+                            //['Puppet', 0.48, 'silver'],
+                            ['Kotlin', 0.24, 'silver'],
+                            //['TypeScript', 0.24, 'silver'],
+                            //['Mathematica', 0.24, 'silver'],
+                            //['NSIS', 0.24, 'silver'],
+                            //['XSLT', 0.24, 'silver'],
+                            //['SQLPL', 0.24, 'silver'],
+                            //['Emacs Lisp', 0.24, 'silver']
+                            //['PLpgSQL', 0.24, 'silver'],
+                        ]);
+                        var options = {
+                            title: 'Гістограма',
+                        };
+                        var materialChart = new google.charts.Bar(document.getElementById('chart5_div'));
+                            materialChart.draw(data, options);
+                        }
+                    </script>
+                    <div id="chart5_div" style="width:730px; height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <table 	class="table">
 	<tr>
 		<td><h4>Мова програмування</h4></td>
@@ -73,6 +167,30 @@ table
 	<tr>
 		<td>PHP</td>
 		<td>The PHP Group</td>
+	</tr>
+	<tr>
+		<td>Clojure</td>
+		<td>Rich Hickey</td>
+	</tr>
+	<tr>
+		<td>Objective-C</td>
+		<td>Розроблено на основі C</td>
+	</tr>
+	<tr>
+		<td>Shell</td>
+		<td>Chet Ramey</td>
+	</tr>
+	<tr>
+		<td>Perl</td>
+		<td>Ларри Уолл</td>
+	</tr>
+	<tr>
+		<td>Swift</td>
+		<td>Apple</td>
+	</tr>
+	<tr>
+		<td>Kotlin</td>
+		<td>JetBrains</td>
 	</tr>
 </table>
 <table 	class="table">	

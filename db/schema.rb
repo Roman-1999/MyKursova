@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180522173356) do
+ActiveRecord::Schema.define(version: 20180525192832) do
+
+  create_table "org_gits", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rep_gits", force: :cascade do |t|
+    t.integer "Orgname_id"
+    t.string "repname"
+    t.string "language"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "repositories", force: :cascade do |t|
     t.string "name"

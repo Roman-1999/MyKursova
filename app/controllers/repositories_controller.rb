@@ -16,7 +16,8 @@ class RepositoriesController < ApplicationController
   def test
     require 'net/http'
     require 'uri'
-    org_url = "https://api.github.com/organizations?since=0"
+    #org_url = "https://api.github.com/organizations?since=39634367"
+    org_url = "https://api.github.com/organizations?since=100000"
     org_uri = URI.parse(org_url)
     response_o = Net::HTTP.get_response(org_uri)
     @org = JSON.parse(response_o.body)
@@ -26,19 +27,23 @@ class RepositoriesController < ApplicationController
     end
 
     ##Створюємо діаграму по даним
-    @lang = {}
-    @org.each do |org|
-      @repos[org['id']].each do |rp|
-        if @lang[rp['language']].present?
-          @lang[rp['language']] = @lang[rp['language']]+1
-        else
-          @lang[rp['language']] = 1
-        end
-      end
-    end
+    #@lang = {}
+    #@org.each do |org|
+      #@repos[org['id']].each do |rp|
+        #if @lang[rp['language']].present?
+          #@lang[rp['language']] = @lang[rp['language']]+1
+       #else
+          #@lang[rp['language']] = 1
+        #end
+      #end
+    #end
   end
 
   def create
+    pp@org=Org.create(org_params)
+    pp@org.save
+    pp@org_git = @org.repositories.build(rep_params)
+    pp@org_git.save
   end
 
   def update
